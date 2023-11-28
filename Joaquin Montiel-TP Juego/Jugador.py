@@ -1,42 +1,71 @@
-# import pygame
+import pygame
+from config import *
+from Fuego import *
 
-# RUTA_DER = r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Still.png'
-# RUTA_IZ = r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Still(iz).png'
+class Jugador(pygame.sprite.Sprite):
+    def __init__(self, coordenadas, ruta_der, ruta_izq, dinosaurio_camina_der, dinosaurio_camina_izq) -> None:
+        super().__init__()
+        # self.nombre =  input("Ingrese el nombre de su dino")
+        self.vidas = 3
+        self.dinosaurio_der = pygame.image.load(ruta_der)
+        self.dinosaurio_izq = pygame.image.load(ruta_izq)
+        self.image = self.dinosaurio_der
+        self.rect = self.image.get_rect()
+        self.piso = HEIGTH
+        self.rect.midbottom = coordenadas
+        self.dinosaurio_camina_der = dinosaurio_camina_der
+        self.dinosaurio_camina_izq = dinosaurio_camina_izq
+        self.indice_sprite = 0  # Nuevo atributo para rastrear el índice del sprite actual
+        self.en_el_aire = False
+        self.velocidad_salto = -10 # Ajusta según sea necesario
+        self.gravedad = 1  # Ajusta según sea necesario
+        self.velocidad_x = 0
+        self.velocidad_y = 0
+        self.fuego_cooldown = 0  # Tiempo de espera entre disparos
+        self.fuego_cooldown_max = 30  # Máximo tiempo de espera entre disparos
 
-# dinosaurio_camina_derecha = [
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(1).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(2).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(3).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(4).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(5).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(6).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(7).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(8).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(9).png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(10).png')
-# ]
+    def mover_der(self, pixeles):
+        self.rect.x += pixeles
+        self.image = self.dinosaurio_camina_der[self.indice_sprite]
+        self.indice_sprite = (self.indice_sprite + 1) % len(self.dinosaurio_camina_der)
 
-# dinosaurio_camina_izquierda = [
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(1)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(2)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(3)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(4)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(5)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(6)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(7)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(8)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(9)iz.png'),
-#     pygame.image.load(r'C:\Users\joaqu\OneDrive\Desktop\Joaquin Montiel-TP Juego\sprites_juego\Walk\Walk(10)iz.png')
-# ]
+    def mover_izq(self, pixeles):
+        self.rect.x -= pixeles
+        self.image = self.dinosaurio_camina_izq[self.indice_sprite]
+        self.indice_sprite = (self.indice_sprite + 1) % len(self.dinosaurio_camina_izq)
+
+    def update(self):
+        self.rect.x += self.velocidad_x
+        self.rect.y += self.velocidad_y
+
+    def saltar(self):
+        if not self.en_el_aire:
+            self.velocidad_y = self.velocidad_salto
+            self.en_el_aire = True
+
+    def aplicar_gravedad(self):
+        if self.en_el_aire:
+            self.velocidad_y += self.gravedad
+            self.rect.y += self.velocidad_y
+
+            # Controlar límite inferior (suelo)
+            self.rect.y = min(self.rect.y, self.piso)
+
+            if self.rect.y == self.piso:
+                self.en_el_aire = False
+                self.velocidad_y = 0
 
 
-# class Jugador(pygame.sprite.Sprite):
-#     def __init__(self, nombre:str, vidas:int, dinosaurio_derecha, dinosaurio_izquierda, dinosaurio_camina_derecha, dinosaurio_camina_izquierda) -> None:
-#         super().__init__()
-#         self.nombre =  input(" Ingrese el nombre del dino")
-#         self.vidas = 3
-#         self.dinosaurio_derecha = pygame.image.load(RUTA_DER)
-#         self.dinosaurio_izquierda = pygame.image.load(RUTA_IZ)
-#         self.dinosaurio_camina_derecha = dinosaurio_camina_derecha
-#         self.dinosaurio_camina_izquierda = dinosaurio_camina_izquierda
+    def disparar_fuego(self, sprites_grupo):
+        if self.fuego_cooldown <= 0:
+            nuevo_fuego = Fuego(RUTA_FUEGO, TAMAÑO_FUEGO)
+            nuevo_fuego.rect.x = self.rect.x + self.rect.width if self.velocidad_x > 0 else self.rect.x - nuevo_fuego.rect.width
+            nuevo_fuego.rect.y = self.rect.y + self.rect.height // 2 - nuevo_fuego.rect.height // 2
+    
+            sprites_grupo.add(nuevo_fuego)
+            self.fuego_cooldown = 0  # Es
 
+    def actualizar_fuego_cooldown(self):
+        # Actualizar el tiempo de espera entre disparos
+        if self.fuego_cooldown > 0:
+            self.fuego_cooldown -= 1
