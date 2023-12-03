@@ -1,16 +1,23 @@
-import pygame
+import pygame as pg
+from config import *
 
-class Fuego(pygame.sprite.Sprite):
-    def __init__(self, path_imagen, tamaño):
+class Defensa(pg.sprite.Sprite):
+    def __init__(self, pos_x, pos_y, direccion:str):
         super().__init__()
 
-        self.fuego = pygame.transform.scale(pygame.image.load(path_imagen), tamaño)
-        self.image = self.fuego
-        self.rect = self.image.get_rect()
-        self.velocidad_x = 0
-        self.velocidad_y = 0
+        self.fuego_der = pg.image.load(r'./sprites_juego\Defensa\llama_der.png')
+        self.fuego_izq = pg.image.load(r'./sprites_juego\Defensa\llama_izq.png')
+        self.image = self.fuego_der if direccion == "derecha" else self.fuego_izq
+        self.rect = self.image.get_rect(center=(pos_x, pos_y))
+        self.rect.centerx = pos_x
+        self.rect.centery = pos_y
+        self.direccion = direccion
 
     def update(self):
-        # Actualizar las coordenadas del rectángulo por asignación directa
-        self.rect.x += self.velocidad_x
-        self.rect.y += self.velocidad_y
+        if self.direccion == "derecha":
+            self.rect.x += 10
+        elif self.direccion == "izquierda":
+            self.rect.x -= 10
+
+        if self.rect.right > WIDTH or self.rect.left < 0:
+            self.kill()

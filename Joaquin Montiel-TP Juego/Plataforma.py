@@ -1,12 +1,16 @@
-import pygame
+import pygame as pg
 
-class Plataforma(pygame.sprite.Sprite):
-    def __init__(self, path_imagen, size):
+class Plataforma(pg.sprite.Sprite):
+    def __init__(self, path_imagen, x, y, ancho, alto):
         super().__init__()
 
-        self.plataforma = pygame.transform.scale(pygame.image.load(path_imagen), size)
-        self.image = self.plataforma
-        self.rect = self.image.get_rect()
+        self.rect = pg.Rect(x, y, ancho, alto)
+        self.image = pg.image.load(path_imagen)
+        self.image = pg.transform.scale(self.image, (ancho, alto))
+        
 
-    def update(self):
-        pass
+    def ger_rect(self):
+        return self.rect
+    
+    def draw(self, pantalla):
+        pantalla.blit(self.image, self.rect)
