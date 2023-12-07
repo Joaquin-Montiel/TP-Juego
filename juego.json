@@ -1,0 +1,323 @@
+
+
+{
+    "tiempo_de_juego": 30,
+    "nivel_1": {
+        "nivel":{
+            "fondo_pantalla": "./sprites_juego/Fondo/fondo.jpg",
+            "musica_fondo": "./Sounds/videojuegos.mp3",
+            "cantidad_vidas": 3,
+            "cantidad_enemigos": 3,
+            "cantidad_trampas": 3,
+            "cantidad_objetivos": 4,
+            "cantidad_energia": 5,
+            "tiempo": 100
+        },
+        "plataformas":{
+            "plataforma_1":{
+                "image": "./sprites_juego/Plataformas/plataforma1.png",
+                "x": 510, 
+                "y": 335, 
+                "ancho": 120, 
+                "alto":120
+            },
+            "plataforma_2":{
+                "image": "./sprites_juego/Plataformas/plataforma1.png",
+                "x": 225,  
+                "y": 345, 
+                "ancho": 120, 
+                "alto":120
+            },
+            "plataforma_3":{
+                "image": "./sprites_juego/Plataformas/plataforma2.png",
+                "x": 560,  
+                "y": 510, 
+                "ancho": 100, 
+                "alto":100
+            },
+            "plataforma_4":{
+                "image": "./sprites_juego/Plataformas/plataforma2.png",
+                "x": 100,  
+                "y": 510, 
+                "ancho": 100, 
+                "alto":100
+            }
+        },
+        "jugador":{
+            "jugador_parado_der": "./sprites_juego/Idlle/Idlle_der.png",
+            "jugador_parado_izq": "./sprites_juego/Idlle/Idlle_izq.png",
+            "jugador_camina_der":[ 
+                "./sprites_juego/Walk/Walk(1).png",
+                "./sprites_juego/Walk/Walk(2).png",
+                "./sprites_juego/Walk/Walk(3).png",
+                "./sprites_juego/Walk/Walk(4).png",
+                "./sprites_juego/Walk/Walk(5).png",
+                "./sprites_juego/Walk/Walk(6).png",
+                "./sprites_juego/Walk/Walk(7).png",
+                "./sprites_juego/Walk/Walk(8).png",
+                "./sprites_juego/Walk/Walk(9).png",
+                "./sprites_juego/Walk/Walk(10).png"],
+            "jugador_camina_izq": [ 
+                "./sprites_juego/Walk/Walk(1)iz.png",
+                "./sprites_juego/Walk/Walk(2)iz.png",
+                "./sprites_juego/Walk/Walk(3)iz.png",
+                "./sprites_juego/Walk/Walk(4)iz.png",
+                "./sprites_juego/Walk/Walk(5)iz.png",
+                "./sprites_juego/Walk/Walk(6)iz.png",
+                "./sprites_juego/Walk/Walk(7)iz.png",
+                "./sprites_juego/Walk/Walk(8)iz.png",
+                "./sprites_juego/Walk/Walk(9)iz.png",
+                "./sprites_juego/Walk/Walk(10)iz.png"]
+        },
+        "enemigo":{
+            "enemigo_der": "./sprites_juego/Enemigo/enemigo_der.png",
+            "enemigo_izq": "./sprites_juego/Enemigo/enemigo_iz.png",
+            "x": {
+                "valor_x_1": 200,
+                "valor_x_2": 500
+            },
+            "y": {
+                "valor_y_1": 600,
+                "valor_y_2": 1
+            }
+        },
+        "objetivo":{
+            "huevo": "./sprites_juego/Energia/huevo_dino.png",
+            "puntaje": 300
+        },
+        "energia":{
+            "carne": "./sprites_juego/Energia/hueso_de_carne.png",
+            "puntaje": 20
+
+        },
+        "trampa":{
+            "meteorito": "./sprites_juego/Enemigo/meteorito.png",
+            "puntaje": 50,
+            "velocidad_caida": 1 
+        },
+        "vidas":{
+            "corazon": "sprites_juego/vida/vida.png",
+            "vida": 1
+        }
+
+    },
+    "nivel_2":{
+        "nivel":{
+            "fondo_pantalla": "./sprites_juego/Fondo/desierto.jpg",
+            "musica_fondo": "./Sounds/videojuegos.mp3",
+            "cantidad_vidas": 3,
+            "cantidad_enemigos": 6,
+            "cantidad_trampas": 5,
+            "cantidad_objetivos": 8,
+            "cantidad_energia": 10,
+            "plataforma_1": "./sprites_juego/Plataformas/plataforma1.png",
+            "plataforma_2": "./sprites_juego/Plataformas/plataforma2.png",
+            "tiempo": 100
+        },
+        "plataformas":{
+            "plataforma_1":{
+            "image": "./sprites_juego/Plataformas/plataforma1.png",
+            "x": 510, 
+            "y": 335, 
+            "ancho": 120, 
+            "alto":120
+        },
+        "plataforma_2":{
+            "image": "./sprites_juego/Plataformas/plataforma1.png",
+            "x": 225,  
+            "y": 345, 
+            "ancho": 120, 
+            "alto":120
+        },
+        "plataforma_3":{
+            "image": "./sprites_juego/Plataformas/plataforma2.png",
+            "x": 560,  
+            "y": 510, 
+            "ancho": 100, 
+            "alto":100
+        },
+        "plataforma_4":{
+            "image": "./sprites_juego/Plataformas/plataforma2.png",
+            "x": 100,  
+            "y": 510, 
+            "ancho": 100, 
+            "alto":100
+        },
+        
+        "jugador":{
+            "jugador_parado_der": "./sprites_juego/Idlle/Idlle_der.png",
+            "jugador_parado_izq": "./sprites_juego/Idlle/Idlle_izq.png",
+            "jugador_camina_der":[ 
+                "./sprites_juego/Walk/Walk(1).png",
+                "./sprites_juego/Walk/Walk(2).png",
+                "./sprites_juego/Walk/Walk(3).png",
+                "./sprites_juego/Walk/Walk(4).png",
+                "./sprites_juego/Walk/Walk(5).png",
+                "./sprites_juego/Walk/Walk(6).png",
+                "./sprites_juego/Walk/Walk(7).png",
+                "./sprites_juego/Walk/Walk(8).png",
+                "./sprites_juego/Walk/Walk(9).png",
+                "./sprites_juego/Walk/Walk(10).png"],
+            "jugador_camina_izq": [ 
+                "./sprites_juego/Walk/Walk(1)iz.png",
+                "./sprites_juego/Walk/Walk(2)iz.png",
+                "./sprites_juego/Walk/Walk(3)iz.png",
+                "./sprites_juego/Walk/Walk(4)iz.png",
+                "./sprites_juego/Walk/Walk(5)iz.png",
+                "./sprites_juego/Walk/Walk(6)iz.png",
+                "./sprites_juego/Walk/Walk(7)iz.png",
+                "./sprites_juego/Walk/Walk(8)iz.png",
+                "./sprites_juego/Walk/Walk(9)iz.png",
+                "./sprites_juego/Walk/Walk(10)iz.png"]
+        },
+        "enemigo":{
+            "enemigo_der": "./sprites_juego/Enemigo/enemigo_der.png",
+            "enemigo_izq": "./sprites_juego/Enemigo/enemigo_iz.png",
+            "x": {
+                "valor_x_1": 200,
+                "valor_x_2": 500
+            },
+            "y": {
+                "valor_y_1": 600,
+                "valor_y_2": 1
+            }
+        },
+        "objetivos":{
+            "objetivo_1": { "./sprites_juego/Energia/huevo_dino.png",
+            "x": 530,
+            "y": 335,
+            "ancho": 120,
+            "alto": 120},
+        "objetivo_2":{
+            "objetivo_1": "./sprites_juego/Energia/huevo_dino.png",
+            "x": 530,
+            "y": 335,
+            "ancho": 120,
+            "alto": 120},
+        "objetivo_3":{
+            "objetivo_1": "./sprites_juego/Energia/huevo_dino.png",
+            "x": 530,
+            "y": 335,
+            "ancho": 120,
+            "alto": 120},
+        "objetivo_4":{
+            "objetivo_1": "./sprites_juego/Energia/huevo_dino.png",
+            "x": 530,
+            "y": 335,
+            "ancho": 120,
+            "alto": 120}
+        },
+        "energia":{
+            "carne": "./sprites_juego/Energia/hueso_de_carne.png",
+            "puntaje": 20
+
+        },
+        "trampa":{
+            "meteorito": "./sprites_juego/Enemigo/meteorito.png",
+            "puntaje": 50,
+            "velocidad_caida": 1
+        },
+        "vidas":{
+            "corazon": "sprites_juego/vida/vida.png",
+            "vida": 1
+        }
+    },
+    "nivel_3":{
+        "nivel":{
+            "fondo_pantalla": "./sprites_juego/Fondo/volcan.jpg",
+            "musica_fondo": "./Sounds/videojuegos.mp3",
+            "cantidad_vidas": 3,
+            "cantidad_enemigos": 9,
+            "cantidad_trampas": 7,
+            "cantidad_objetivos": 12,
+            "cantidad_energia": 15,
+            "plataforma_1": "./sprites_juego/Plataformas/plataforma1.png",
+            "plataforma_2": "./sprites_juego/Plataformas/plataforma2.png",
+            "tiempo": 100
+        },
+        "plataforma_1":{
+            "image": "./sprites_juego/Plataformas/plataforma1.png",
+            "x": 510, 
+            "y": 335, 
+            "ancho": 120, 
+            "alto":120
+        },
+        "plataforma_2":{
+            "image": "./sprites_juego/Plataformas/plataforma1.png",
+            "x": 225,  
+            "y": 345, 
+            "ancho": 120, 
+            "alto":120
+        },
+        "plataforma_3":{
+            "image": "./sprites_juego/Plataformas/plataforma2.png",
+            "x": 560,  
+            "y": 510, 
+            "ancho": 100, 
+            "alto":100
+        },
+        "plataforma_4":{
+            "image": "./sprites_juego/Plataformas/plataforma2.png",
+            "x": 100,  
+            "y": 510, 
+            "ancho": 100, 
+            "alto":100
+        },
+        "jugador":{
+            "jugador_parado_der": "./sprites_juego/Idlle/Idlle_der.png",
+            "jugador_parado_izq": "./sprites_juego/Idlle/Idlle_izq.png",
+            "jugador_camina_der":[ 
+                "./sprites_juego/Walk/Walk(1).png",
+                "./sprites_juego/Walk/Walk(2).png",
+                "./sprites_juego/Walk/Walk(3).png",
+                "./sprites_juego/Walk/Walk(4).png",
+                "./sprites_juego/Walk/Walk(5).png",
+                "./sprites_juego/Walk/Walk(6).png",
+                "./sprites_juego/Walk/Walk(7).png",
+                "./sprites_juego/Walk/Walk(8).png",
+                "./sprites_juego/Walk/Walk(9).png",
+                "./sprites_juego/Walk/Walk(10).png"],
+            "jugador_camina_izq": [ 
+                "./sprites_juego/Walk/Walk(1)iz.png",
+                "./sprites_juego/Walk/Walk(2)iz.png",
+                "./sprites_juego/Walk/Walk(3)iz.png",
+                "./sprites_juego/Walk/Walk(4)iz.png",
+                "./sprites_juego/Walk/Walk(5)iz.png",
+                "./sprites_juego/Walk/Walk(6)iz.png",
+                "./sprites_juego/Walk/Walk(7)iz.png",
+                "./sprites_juego/Walk/Walk(8)iz.png",
+                "./sprites_juego/Walk/Walk(9)iz.png",
+                "./sprites_juego/Walk/Walk(10)iz.png"]
+        },
+        "enemigo":{
+            "enemigo_der": "./sprites_juego/Enemigo/enemigo_der.png",
+            "enemigo_izq": "./sprites_juego/Enemigo/enemigo_iz.png",
+            "x": {
+                "valor_x_1": 200,
+                "valor_x_2": 500
+            },
+            "y": {
+                "valor_y_1": 600,
+                "valor_y_2": 1
+            }
+        },
+        "objetivo":{
+            "huevo": "./sprites_juego/Energia/huevo_dino.png",
+            "puntaje": 300
+        },
+        "energia":{
+            "carne": "./sprites_juego/Energia/hueso_de_carne.png",
+            "puntaje": 20
+
+        },
+        "trampa":{
+            "meteorito": "./sprites_juego/Enemigo/meteorito.png",
+            "puntaje": 50,
+            "velocidad_caida": 1
+        },
+        "vidas":{
+            "corazon": "sprites_juego/vida/vida.png",
+            "vida": 1
+        }
+    }
+}}
