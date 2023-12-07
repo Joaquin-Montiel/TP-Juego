@@ -34,8 +34,8 @@ class Juego(pg.sprite.Sprite):
         self.sonido_recoleccion = pg.mixer.Sound(r'./Sounds\objetivo.mp3')
         self.sonido_salto = pg.mixer.Sound(r'./Sounds\jump.mp3')
         self.sonido_fondo = pg.mixer.music.load(r'./Sounds\videojuegos.mp3')
-        # pg.mixer.music.set_volume(0.10)
-        # pg.mixer.music.play(-1)
+        pg.mixer.music.set_volume(0.10)
+        pg.mixer.music.play(-1)
 
         #Iniciar los grupos de sprites
         self.grupo_sprites = pg.sprite.Group()
@@ -198,13 +198,13 @@ class Juego(pg.sprite.Sprite):
 
             colision_objetivos = pg.sprite.spritecollide(self.jugador, self.grupo_objetivos, True)
             for objetivo in colision_objetivos:
-                    # self.sonido_recoleccion.set_volume(0.05)
-                    # self.sonido_recoleccion.play()  
+                    self.sonido_recoleccion.set_volume(0.05)
+                    self.sonido_recoleccion.play()  
                     self.puntaje.recolectar_objetivo(objetivo.puntaje)
                     self.objetivos_recolectados += 1
                     print("Objetivo recolectado")
-            # Verificar si se recolectaron todos los objetivos para cambiar de nivel
-            if self.objetivos_recolectados >= 4 and tiempo_restante > 0:
+            # Verificosi se recolectaron todos los objetivos para cambiar de nivel
+            if self.objetivos_recolectados >= 4:
                 self.cambiar_nivel()
 
             for energia in self.grupo_energias:
@@ -246,8 +246,8 @@ class Juego(pg.sprite.Sprite):
             pg.display.flip()
             self.reloj.tick(20)
 
-        # def cambiar_nivel(self):
-        #     self.objetivos_recolectados = 0
+    def cambiar_nivel(self):
+        self.objetivos_recolectados = 0
 
 
 

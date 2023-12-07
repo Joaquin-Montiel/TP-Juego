@@ -19,7 +19,7 @@ class Jugador(pg.sprite.Sprite):
         self.indice_sprite = 0  # Atributo para rastrear el índice del sprite actual
         self.en_el_aire = False
         self.velocidad_salto = -10 
-        self.gravedad = 0.5
+        self.gravedad = 1
         self.velocidad_x = 0
         self.velocidad_y = 0
         self.direccion = "derecha"
@@ -60,7 +60,7 @@ class Jugador(pg.sprite.Sprite):
 
     def aplicar_gravedad(self):
         if self.en_el_aire:
-            self.rect.y += self.velocidad_y * 2
+            self.rect.y += self.velocidad_y * 3
             self.velocidad_y += self.gravedad
 
             # Controlar límite inferior (suelo)
