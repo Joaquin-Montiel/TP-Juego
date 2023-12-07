@@ -78,7 +78,7 @@ class Juego(pg.sprite.Sprite):
         self.energia_5 = Energia(RUTA_ENERGIA, 390, 450, 40, 40)
         self.grupo_energias.add(self.energia_1, self.energia_2, self.energia_3, self.energia_4, self.energia_5)
 
-        self.grupo_sprites.add(self.jugador, self.grupo_plataformas, self.grupo_objetivos, self.grupo_energias, 
+        self.grupo_sprites.add(self.jugador, self.grupo_plataformas, self.grupo_disparos, self.grupo_objetivos, self.grupo_energias, 
                             self.grupo_enemigos)
 
         #Variables del juego
@@ -146,7 +146,13 @@ class Juego(pg.sprite.Sprite):
 
             generar_trampas(self.grupo_sprites, self.grupo_trampas, self.pantalla, MAX_ASTEROID)
 
-            self.jugador.aplicar_gravedad()
+            # self.jugador.aplicar_gravedad()
+
+
+            for plataforma in self.grupo_plataformas:
+                if self.jugador.rect.colliderect(plataforma.rect):
+                    self.jugador.rect.y = plataforma.rect.y - self.jugador.rect.height
+                    self.jugador.velocidad_y = 0
 
             # colision_plataformas = pg.sprite.spritecollide(self.jugador, self.grupo_plataformas, False)
             # for plataforma in colision_plataformas:

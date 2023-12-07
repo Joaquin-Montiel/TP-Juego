@@ -19,7 +19,7 @@ class Jugador(pg.sprite.Sprite):
         self.indice_sprite = 0  # Atributo para rastrear el índice del sprite actual
         self.en_el_aire = False
         self.velocidad_salto = -10 
-        self.gravedad = 1  
+        self.gravedad = 0.5
         self.velocidad_x = 0
         self.velocidad_y = 0
         self.direccion = "derecha"
@@ -58,16 +58,16 @@ class Jugador(pg.sprite.Sprite):
         self.aplicar_gravedad()
         self.actualizar_defensa()
 
-    # def aplicar_gravedad(self):
-    #     if self.en_el_aire:
-    #         self.rect.y += self.velocidad_y
-    #         self.velocidad_y += self.gravedad
+    def aplicar_gravedad(self):
+        if self.en_el_aire:
+            self.rect.y += self.velocidad_y * 2
+            self.velocidad_y += self.gravedad
 
-    #         # Controlar límite inferior (suelo)
-    #         if self.rect.y >= self.piso:
-    #             self.rect.y = self.piso
-    #             self.en_el_aire = False
-    #             self.velocidad_y = 0
+            # Controlar límite inferior (suelo)
+            if self.rect.y >= self.piso:
+                self.rect.y = self.piso
+                self.en_el_aire = False
+                self.velocidad_y = 0
 
         
     def saltar(self):
@@ -113,27 +113,19 @@ class Jugador(pg.sprite.Sprite):
     def debugger(self, pantalla):
         pg.draw.rect(pantalla, (AZUL), self.rect, 3)
 
-    def aplicar_gravedad(self):
-        if self.en_el_aire:
-            self.rect.y += self.velocidad_y
-            self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
-            self.velocidad_y += self.gravedad
+    # def aplicar_gravedad(self):
+    #     if self.en_el_aire:
+    #         self.rect.y += self.velocidad_y
+    #         self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
+    #         self.velocidad_y += self.gravedad
 
-            # Controlar límite inferior (suelo) con el hitbox
-            if self.hitbox.y >= self.piso:
-                self.rect.y = self.piso - ALTO_JUGADOR_HITBOX + ALTO_JUGADOR_HITBOX
-                self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
-                self.en_el_aire = False
-                self.velocidad_y = 0
-            else:
-                self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
-
-    # def manejar_colisiones_plataformas(self):
-    #     # Controlar colisiones con plataformas usando el hitbox
-    #     colision_plataformas = pg.sprite.spritecollide(self, self.grupo_plataformas, False)
-    #     for plataforma in colision_plataformas:
-    #         if self.velocidad_y > 0:
-    #             self.rect.bottom = plataforma.rect.top
+    #         # Controlar límite inferior (suelo) con el hitbox
+    #         if self.hitbox.y >= self.piso:
+    #             self.rect.y = self.piso - ALTO_JUGADOR_HITBOX + ALTO_JUGADOR_HITBOX
     #             self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
     #             self.en_el_aire = False
     #             self.velocidad_y = 0
+    #         else:
+    #             self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
+
+    

@@ -81,23 +81,74 @@
                 "valor_y_2": 1
             }
         },
-        "objetivo":{
-            "huevo": "./sprites_juego/Energia/huevo_dino.png",
-            "puntaje": 300
-        },
+        "objetivos":{
+            "image": "./sprites_juego/Energia/huevo_dino.png",
+            "objetivo_1": { 
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            },
+            "objetivo_2":{
+                    "x": 530,
+                    "y": 335,
+                    "ancho": 120,
+                    "alto": 120
+            },
+            "objetivo_3":{
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            },
+            "objetivo_4":{
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            }},
         "energia":{
-            "carne": "./sprites_juego/Energia/hueso_de_carne.png",
-            "puntaje": 20
-
-        },
-        "trampa":{
-            "meteorito": "./sprites_juego/Enemigo/meteorito.png",
-            "puntaje": 50,
-            "velocidad_caida": 1 
-        },
+            "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
+            "ancho": 40,
+            "alto": 40,
+            "energia_1":{
+                "x": 380,
+                "y": 415
+            },
+            "energia_2":{
+                "x": 150,
+                "y": 515
+            },
+            "energia_3":{
+                "x": 410,
+                "y": 415
+            },
+            "energia_4":{
+                "x": 580,
+                "y": 330
+            },
+            "energia_5":{
+                "x": 390,
+                "y": 450
+            }},
+            "trampa":{
+                "meteorito": "./sprites_juego/Enemigo/meteorito.png",
+                "x":{
+                    "valor_x_1": 40,
+                    "valor_x_2": 760
+                },
+                "y":{
+                    "valor_y_1": 40,
+                    "valor_y_2": 300
+                }},
         "vidas":{
-            "corazon": "sprites_juego/vida/vida.png",
-            "vida": 1
+            "imagen": "sprites_juego/vida/vida.png",
+            "x": {
+                "valor_x_1": 800,
+                "valor_x_2": 390
+            },
+            "y": 25,
+            "cantidad_vida": 1
         }
 
     },
@@ -183,44 +234,74 @@
             }
         },
         "objetivos":{
-            "objetivo_1": { "./sprites_juego/Energia/huevo_dino.png",
-            "x": 530,
-            "y": 335,
-            "ancho": 120,
-            "alto": 120},
-        "objetivo_2":{
-            "objetivo_1": "./sprites_juego/Energia/huevo_dino.png",
-            "x": 530,
-            "y": 335,
-            "ancho": 120,
-            "alto": 120},
-        "objetivo_3":{
-            "objetivo_1": "./sprites_juego/Energia/huevo_dino.png",
-            "x": 530,
-            "y": 335,
-            "ancho": 120,
-            "alto": 120},
-        "objetivo_4":{
-            "objetivo_1": "./sprites_juego/Energia/huevo_dino.png",
-            "x": 530,
-            "y": 335,
-            "ancho": 120,
-            "alto": 120}
-        },
-        "energia":{
-            "carne": "./sprites_juego/Energia/hueso_de_carne.png",
-            "puntaje": 20
-
-        },
-        "trampa":{
-            "meteorito": "./sprites_juego/Enemigo/meteorito.png",
-            "puntaje": 50,
-            "velocidad_caida": 1
-        },
-        "vidas":{
-            "corazon": "sprites_juego/vida/vida.png",
-            "vida": 1
-        }
+            "image": "./sprites_juego/Energia/huevo_dino.png",
+            "objetivo_1": { 
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            },
+            "objetivo_2":{
+                    "x": 530,
+                    "y": 335,
+                    "ancho": 120,
+                    "alto": 120
+            },
+            "objetivo_3":{
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            },
+            "objetivo_4":{
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            }},
+            "energia":{
+                "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
+                "ancho": 40,
+                "alto": 40,
+                "energia_1":{
+                    "x": 380,
+                    "y": 415
+                },
+                "energia_2":{
+                    "x": 150,
+                    "y": 515
+                },
+                "energia_3":{
+                    "x": 410,
+                    "y": 415
+                },
+                "energia_4":{
+                    "x": 580,
+                    "y": 330
+                },
+                "energia_5":{
+                    "x": 390,
+                    "y": 450
+            }},
+            "trampa":{
+                "meteorito": "./sprites_juego/Enemigo/meteorito.png",
+                "x":{
+                    "valor_x_1": 40,
+                    "valor_x_2": 760
+                },
+                "y":{
+                    "valor_y_1": 40,
+                    "valor_y_2": 300
+                }},
+            "vidas":{
+                "imagen": "sprites_juego/vida/vida.png",
+                "x": {
+                    "valor_x_1": 800,
+                    "valor_x_2": 390
+                },
+                "y": 25,
+                "cantidad_vida": 1
+            }
     },
     "nivel_3":{
         "nivel":{
@@ -301,23 +382,75 @@
                 "valor_y_2": 1
             }
         },
-        "objetivo":{
-            "huevo": "./sprites_juego/Energia/huevo_dino.png",
-            "puntaje": 300
-        },
-        "energia":{
-            "carne": "./sprites_juego/Energia/hueso_de_carne.png",
-            "puntaje": 20
-
-        },
+        "objetivos":{
+            "image": "./sprites_juego/Energia/huevo_dino.png",
+            "objetivo_1": { 
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            },
+            "objetivo_2":{
+                    "x": 530,
+                    "y": 335,
+                    "ancho": 120,
+                    "alto": 120
+            },
+            "objetivo_3":{
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            },
+            "objetivo_4":{
+                "x": 530,
+                "y": 335,
+                "ancho": 120,
+                "alto": 120
+            }},
+            "energia":{
+                "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
+                "ancho": 40,
+                "alto": 40,
+                "energia_1":{
+                    "x": 380,
+                    "y": 415
+                },
+                "energia_2":{
+                    "x": 150,
+                    "y": 515
+                },
+                "energia_3":{
+                    "x": 410,
+                    "y": 415
+                },
+                "energia_4":{
+                    "x": 580,
+                    "y": 330
+                },
+                "energia_5":{
+                    "x": 390,
+                    "y": 450
+            }},
         "trampa":{
             "meteorito": "./sprites_juego/Enemigo/meteorito.png",
-            "puntaje": 50,
-            "velocidad_caida": 1
+            "x":{
+                "valor_x_1": 40,
+                "valor_x_2": 760
+            },
+            "y":{
+                "valor_y_1": 40,
+                "valor_y_2": 300
+            }
         },
         "vidas":{
-            "corazon": "sprites_juego/vida/vida.png",
-            "vida": 1
+            "imagen": "sprites_juego/vida/vida.png",
+            "x": {
+                "valor_x_1": 800,
+                "valor_x_2": 390
+            },
+            "y": 25,
+            "cantidad_vida": 1
         }
     }
 }}
