@@ -6,6 +6,8 @@
         "nivel":{
             "fondo_pantalla": "./sprites_juego/Fondo/fondo.jpg",
             "musica_fondo": "./Sounds/videojuegos.mp3",
+            "sonido_game_over": "./Sounds/game_over.mp3",
+            "sonido_victoria": "./Sounds/victoria.mp3",
             "cantidad_vidas": 3,
             "cantidad_enemigos": 3,
             "cantidad_trampas": 3,
@@ -82,30 +84,24 @@
             }
         },
         "objetivos":{
-            "image": "./sprites_juego/Energia/huevo_dino.png",
+            "imagen": "./sprites_juego/Energia/huevo_dino.png",
+            "ancho": 40,
+            "alto": 40,
             "objetivo_1": { 
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 335
             },
             "objetivo_2":{
                     "x": 530,
-                    "y": 335,
-                    "ancho": 120,
-                    "alto": 120
+                    "y": 335
             },
             "objetivo_3":{
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 330
             },
             "objetivo_4":{
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 335
             }},
         "energia":{
             "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
@@ -131,16 +127,16 @@
                 "x": 390,
                 "y": 450
             }},
-            "trampa":{
-                "meteorito": "./sprites_juego/Enemigo/meteorito.png",
-                "x":{
-                    "valor_x_1": 40,
-                    "valor_x_2": 760
-                },
-                "y":{
-                    "valor_y_1": 40,
-                    "valor_y_2": 300
-                }},
+        "trampa":{
+            "imagen": "./sprites_juego/Enemigo/meteorito.png",
+            "x":{
+                "valor_x_1": 40,
+                "valor_x_2": 760
+            },
+            "y":{
+                "valor_y_1": 40,
+                "valor_y_2": 300
+            }},
         "vidas":{
             "imagen": "sprites_juego/vida/vida.png",
             "x": {
@@ -234,74 +230,68 @@
             }
         },
         "objetivos":{
-            "image": "./sprites_juego/Energia/huevo_dino.png",
+            "imagen": "./sprites_juego/Energia/huevo_dino.png",
+            "ancho": 40,
+            "alto": 40,
             "objetivo_1": { 
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 335
             },
             "objetivo_2":{
                     "x": 530,
-                    "y": 335,
-                    "ancho": 120,
-                    "alto": 120
+                    "y": 335
             },
             "objetivo_3":{
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 330
             },
             "objetivo_4":{
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 335
             }},
-            "energia":{
-                "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
-                "ancho": 40,
-                "alto": 40,
-                "energia_1":{
-                    "x": 380,
-                    "y": 415
-                },
-                "energia_2":{
-                    "x": 150,
-                    "y": 515
-                },
-                "energia_3":{
-                    "x": 410,
-                    "y": 415
-                },
-                "energia_4":{
-                    "x": 580,
-                    "y": 330
-                },
-                "energia_5":{
-                    "x": 390,
-                    "y": 450
+        "energia":{
+            "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
+            "ancho": 40,
+            "alto": 40,
+            "energia_1":{
+                "x": 380,
+                "y": 415
+            },
+            "energia_2":{
+                "x": 150,
+                "y": 515
+            },
+            "energia_3":{
+                "x": 410,
+                "y": 415
+            },
+            "energia_4":{
+                "x": 580,
+                "y": 330
+            },
+            "energia_5":{
+                "x": 390,
+                "y": 450
+        }},
+        "trampa":{
+            "meteorito": "./sprites_juego/Enemigo/meteorito.png",
+            "x":{
+                "valor_x_1": 40,
+                "valor_x_2": 760
+            },
+            "y":{
+                "valor_y_1": 40,
+                "valor_y_2": 300
             }},
-            "trampa":{
-                "meteorito": "./sprites_juego/Enemigo/meteorito.png",
-                "x":{
-                    "valor_x_1": 40,
-                    "valor_x_2": 760
-                },
-                "y":{
-                    "valor_y_1": 40,
-                    "valor_y_2": 300
-                }},
-            "vidas":{
-                "imagen": "sprites_juego/vida/vida.png",
-                "x": {
-                    "valor_x_1": 800,
-                    "valor_x_2": 390
-                },
-                "y": 25,
-                "cantidad_vida": 1
-            }
+        "vidas":{
+            "imagen": "sprites_juego/vida/vida.png",
+            "x": {
+                "valor_x_1": 800,
+                "valor_x_2": 390
+            },
+            "y": 25,
+            "cantidad_vida": 1
+        }
     },
     "nivel_3":{
         "nivel":{
@@ -383,74 +373,66 @@
             }
         },
         "objetivos":{
-            "image": "./sprites_juego/Energia/huevo_dino.png",
+            "imagen": "./sprites_juego/Energia/huevo_dino.png",
+            "ancho": 40,
+            "alto": 40,
             "objetivo_1": { 
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 335
             },
             "objetivo_2":{
                     "x": 530,
-                    "y": 335,
-                    "ancho": 120,
-                    "alto": 120
+                    "y": 335
             },
             "objetivo_3":{
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 335
             },
             "objetivo_4":{
                 "x": 530,
-                "y": 335,
-                "ancho": 120,
-                "alto": 120
+                "y": 335
             }},
-            "energia":{
-                "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
-                "ancho": 40,
-                "alto": 40,
-                "energia_1":{
-                    "x": 380,
-                    "y": 415
-                },
-                "energia_2":{
-                    "x": 150,
-                    "y": 515
-                },
-                "energia_3":{
-                    "x": 410,
-                    "y": 415
-                },
-                "energia_4":{
-                    "x": 580,
-                    "y": 330
-                },
-                "energia_5":{
-                    "x": 390,
-                    "y": 450
-            }},
-        "trampa":{
-            "meteorito": "./sprites_juego/Enemigo/meteorito.png",
-            "x":{
-                "valor_x_1": 40,
-                "valor_x_2": 760
+        "energia":{
+            "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
+            "ancho": 40,
+            "alto": 40,
+            "energia_1":{
+                "x": 380,
+                "y": 415
             },
-            "y":{
-                "valor_y_1": 40,
-                "valor_y_2": 300
-            }
+            "energia_2":{
+                "x": 150,
+                "y": 515
+            },
+            "energia_3":{
+                "x": 410,
+                "y": 415
+            },
+            "energia_4":{
+                "x": 580,
+                "y": 330
+            },
+            "energia_5":{
+                "x": 390,
+                "y": 450
+        }},
+    "trampa":{
+        "meteorito": "./sprites_juego/Enemigo/meteorito.png",
+        "x":{
+            "valor_x_1": 40,
+            "valor_x_2": 760
         },
-        "vidas":{
-            "imagen": "sprites_juego/vida/vida.png",
-            "x": {
-                "valor_x_1": 800,
-                "valor_x_2": 390
-            },
-            "y": 25,
-            "cantidad_vida": 1
-        }
-    }
+        "y":{
+            "valor_y_1": 40,
+            "valor_y_2": 300
+        }},
+    "vidas":{
+        "imagen": "sprites_juego/vida/vida.png",
+        "x": {
+            "valor_x_1": 800,
+            "valor_x_2": 390
+        },
+        "y": 25,
+        "cantidad_vida": 1
+    }}
 }}

@@ -43,7 +43,6 @@ class Jugador(pg.sprite.Sprite):
         self.image = self.dinosaurio_camina_izq[self.indice_sprite]
         self.indice_sprite = (self.indice_sprite + 1) % len(self.dinosaurio_camina_izq)
 
-
     def colisionar_trampa(self):
         self.energia -= 20
         if self.energia == 0:
@@ -57,6 +56,8 @@ class Jugador(pg.sprite.Sprite):
         self.rect.y += self.velocidad_y
         self.aplicar_gravedad()
         self.actualizar_defensa()
+        self.perder_vida()
+        self.colisionar_enemigo()
 
     def aplicar_gravedad(self):
         if self.en_el_aire:
@@ -90,6 +91,10 @@ class Jugador(pg.sprite.Sprite):
 
     def perder_vida(self):
         self.vidas -= 1
+        # g_vidas.remove(self.vidas)
+        if self.vidas == 0:
+            print("GAME OVER")
+
 
     def perder_energia(self, cantidad):
         self.energia -= cantidad
@@ -98,9 +103,7 @@ class Jugador(pg.sprite.Sprite):
             self.energia = 100  # Reiniciar la energía
 
     def colisionar_enemigo(self):
-        self.perder_vida()
-        if self.vidas == 0:
-            print("GAME OVER")
+        return True
 
     def colisionar_trampa(self):
         self.trampas_colisionadas += 1
@@ -112,20 +115,3 @@ class Jugador(pg.sprite.Sprite):
 
     def debugger(self, pantalla):
         pg.draw.rect(pantalla, (AZUL), self.rect, 3)
-
-    # def aplicar_gravedad(self):
-    #     if self.en_el_aire:
-    #         self.rect.y += self.velocidad_y
-    #         self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
-    #         self.velocidad_y += self.gravedad
-
-    #         # Controlar límite inferior (suelo) con el hitbox
-    #         if self.hitbox.y >= self.piso:
-    #             self.rect.y = self.piso - ALTO_JUGADOR_HITBOX + ALTO_JUGADOR_HITBOX
-    #             self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
-    #             self.en_el_aire = False
-    #             self.velocidad_y = 0
-    #         else:
-    #             self.hitbox.y = self.rect.y + ALTO_JUGADOR_HITBOX - ALTO_JUGADOR_HITBOX
-
-    

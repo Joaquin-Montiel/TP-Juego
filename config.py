@@ -1,4 +1,4 @@
-import pygame as pg, json, random
+import pygame as pg, json
 
 #Configuro la ventana del juego
 ANCHO = 800
@@ -10,8 +10,11 @@ RUTA_FONDO = r'sprites_juego\Fondo\fondo.jpg'
 #Cargo los sprites
 RUTA_DER = r'./sprites_juego\Idlle\Idlle_der.png'
 RUTA_IZQ = r'./sprites_juego\Idlle\Idlle_izq.png'
-RUTA_PLATAFORMA_1 = r'./sprites_juego\Plataformas\plataforma1.png'
-RUTA_PLATAFORMA_2 = r'./sprites_juego\Plataformas\plataforma2.png'
+RUTA_PLATAFORMA_1 = r'./sprites_juego\Plataformas\piedras.png'
+RUTA_PLATAFORMA_2 = r'./sprites_juego\Plataformas\tierra.png'
+
+RUTA_PLATAFORMA_3 = r'./sprites_juego\Plataformas\plataforma1.png'
+RUTA_PLATAFORMA_4 = r'./sprites_juego\Plataformas\plataforma2.png'
 RUTA_FUEGO_DER = r'./sprites_juego\Defensa\llama_der.png'
 RUTA_FUEGO_IZQ = r'./sprites_juego\Defensa\llama_izq.png'
 RUTA_JSON = r'./juego.json'
@@ -62,3 +65,7 @@ def abrir_json() -> dict:
     with open(RUTA_JSON, 'r', encoding='utf-8') as config:
         return json.load(config)
 
+    #  self.plataforma_1 = Plataforma(RUTA_PLATAFORMA_1, 510, 335, 120, 120)
+    #     self.plataforma_2 = Plataforma(RUTA_PLATAFORMA_1, 225, 345, 120, 120)
+    #     self.plataforma_3 = Plataforma(RUTA_PLATAFORMA_2, 560, 510, 100, 100)
+    #     self.plataforma_4 = Plataforma(RUTA_PLATAFORMA_2, 100, 510, 100, 100)

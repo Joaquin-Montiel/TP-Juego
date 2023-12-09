@@ -2,7 +2,7 @@ import pygame as pg
 from config import *
 
 class Enemigo(pg.sprite.Sprite):
-    def __init__(self,path_imagen_der, path_imagen_izq, x, y) -> None:
+    def __init__(self, path_imagen_der, path_imagen_izq, x, y) -> None:
         super().__init__()
         self.enemigo_der = pg.image.load(path_imagen_der)
         self.enemigo_izq = pg.image.load(path_imagen_izq)
