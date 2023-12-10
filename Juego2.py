@@ -40,7 +40,7 @@ class Juego(pg.sprite.Sprite):
         self.objetivos_recolectados = 0
 
         self.tiempo_inicial = pg.time.get_ticks() // 1000 #Tiempo en segundos
-        self.duracion_juego = 60  # duración del juego en segundos
+        self.duracion_juego = 30 # duración del juego en segundos
 
         # #Bucle principal
         while self.en_ejecucion:

@@ -62,7 +62,8 @@
         "vidas":{
             "imagen": "sprites_juego/vida/vida.png",
             "x":{"valor_x_1":800, "valor_x_2":390},
-            "y": 25
+            "y": 25,
+            "cantidad_vida": 1
     }},
     "nivel_2":{
         "nivel":{
@@ -180,7 +181,7 @@
             "objetivo_2":{"x":240, "y":340},
             "objetivo_3":{"x":400, "y":558},
             "objetivo_4":{"x":290, "y":340},
-            "objetivo_5":{"x":550, "y":360},
+            "objetivo_5":{"x":550, "y":450},
             "objetivo_6":{"x":280, "y":400}
         },
         "energia":{

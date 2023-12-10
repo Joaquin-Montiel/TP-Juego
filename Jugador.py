@@ -40,13 +40,6 @@ class Jugador(pg.sprite.Sprite):
         self.image = self.dinosaurio_camina_izq[self.indice_sprite]
         self.indice_sprite = (self.indice_sprite + 1) % len(self.dinosaurio_camina_izq)
 
-    def colisionar_trampa(self):
-        self.energia -= 20
-        if self.energia == 0:
-            self.vidas -= 1
-        else:
-            self.energia = 100  # Reiniciar la energía
-            self.trampas_colisionadas = 0  # Reiniciar el contador de colisiones
 
     def update(self):
         self.rect.x += self.velocidad_x
