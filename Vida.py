@@ -7,16 +7,9 @@ class Vida(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.vidas = 3
 
-    # def restar_vida(self, cantidad):
-    #     self.vidas -= cantidad
-
-    # def sumar_vida(self, cantidad):
-    #     self.vidas += cantidad
-
-    # def retornar_vida(self, cantidad):
-    #     return self.vidas 
+    def draw(self, pantalla):
+        pantalla.blit(self.image, self.rect)
 
     def update(self):
         pass

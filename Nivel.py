@@ -7,21 +7,27 @@ from Objetivo import Huevo
 from Energia  import Energia
 from Trampa import Asteroide
 from Vida import Vida
-from Puntaje import Puntaje
 
 
 class Nivel:
     def __init__(self, pantalla, ancho_pantalla, alto_pantalla, nombre_del_nivel):
         self.configuracion = abrir_json().get(nombre_del_nivel)
-        self.configuracion_jugador = self.configuracion.get("jugador")
+        if self.configuracion:
+            self.configuracion_nivel = self.configuracion.get("nivel", {})
+        else:
+            # Puedes manejar la falta de configuración según tus necesidades
+            print(f"No hay configuración para el nivel {nombre_del_nivel}")
+            self.configuracion_nivel = {}
+        # #Configuro el nivel
+        # self.configuracion_nivel = self.configuracion.get("nivel")
+        #Configuro el jugador
+        self.configuracion_jugador = self.configuracion.get("jugador", {})
         self.jugador = Jugador((0, alto_pantalla), 
                                     self.configuracion_jugador.get("jugador_parado_der"),
                                     self.configuracion_jugador.get("jugador_parado_izq"),
                                     dinosaurio_camina_der,
                                     dinosaurio_camina_izq)
-        #Configuro el nivel
-        self.configuracion_nivel = self.configuracion.get("nivel")
-
+        
         #Configuro los enemigos
         self.configuracion_enemigo = self.configuracion.get("enemigo")
         self.enemigo = self.configuracion_enemigo
@@ -146,7 +152,7 @@ class Nivel:
             trampa.draw(self.pantalla_principal)
 
     def crear_vidas(self):
-        cantidad_vidas = self.configuracion.get("cantidad_vidas")
+        cantidad_vidas = self.configuracion_nivel.get("cantidad_vidas")
         if isinstance(cantidad_vidas, int):
             for i in range(1, cantidad_vidas + 1):
                 x = (ANCHO -(20 * cantidad_vidas)) // 2 + i * 30
@@ -154,6 +160,18 @@ class Nivel:
                 vida = Vida(x, y)
                 self.grupo_vidas.add(vida) 
         self.grupo_sprites.add(self.grupo_vidas)
+
+    # def crear_vidas(self):
+    #     cantidad_vidas = self.configuracion_nivel.get("cantidad_vidas")
+    #     if isinstance(cantidad_vidas, int):
+    #         for i in range(1, cantidad_vidas + 1):
+    #             x = (ANCHO - (20 * cantidad_vidas)) // 2 + i * 30
+    #             y = 25
+    #             vida = Vida(x, y)
+    #             self.grupo_vidas.add(vida) 
+    #             print(f"Creada vida en posición ({x}, {y})")
+    #         print("Cantidad de vidas creadas:", len(self.grupo_vidas))
+    #     self.grupo_sprites.add(self.grupo_vidas)
 
     def mostrar_vidas(self):
         for vida in self.grupo_vidas:
@@ -164,8 +182,8 @@ class Nivel:
         self.imagen_nivel = self.configuracion_nivel.get("fondo_pantalla")
         self.imagen_fondo = pg.transform.scale(pg.image.load(self.imagen_nivel), (ANCHO, ALTO))
         self.musica_fondo = pg.mixer.music.load(self.configuracion_nivel.get("musica_fondo"))
-        self.sonido_game_over = pg.mixer.Sound(self.configuracion_nivel.get("sonido_game_over"))
 
+    
     def update(self):
         self.mostrar_enemigos()
         self.mostrar_plataformas()

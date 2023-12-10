@@ -103,21 +103,18 @@ class Juego(pg.sprite.Sprite):
                     print("Trampa destruida.")
 
                 colision_disparo_plataforma = pg.sprite.spritecollide(disparo, self.nivel.grupo_plataformas, False)
-                for estructura in colision_disparo_plataforma:
+                for plataforma in colision_disparo_plataforma:
                     disparo.kill()
 
-            for trampa in self.nivel.grupo_trampas:
-                if trampa.rect.top >= ALTO:
-                    trampa.kill()
-                
-                colision_trampa_jugador = pg.sprite.spritecollide(self.nivel.jugador, self.nivel.grupo_trampas, True)
-                for trampa in colision_trampa_jugador:
-                    self.nivel.jugador.colision_con_trampa += 1
-                    if self.nivel.jugador.colision_con_trampa == 3:
-                        self.nivel.jugador.vidas -= 1
-                        self.nivel.grupo_vidas.remove(self.nivel.vidas)
-                        print("Vida menos")
-                        print("Colision con trampa.")
+            colision_trampa_jugador = pg.sprite.spritecollide(self.nivel.jugador, self.nivel.grupo_trampas, True)
+            for trampa in colision_trampa_jugador:
+                self.nivel.jugador.colision_con_trampa += 1
+                if self.nivel.jugador.colision_con_trampa == 3:
+                    self.nivel.jugador.vidas -= 1
+                    self.nivel.grupo_vidas.remove(self.nivel.vidas)
+                    print("Vida menos")
+                    print("Colision con trampa.")
+
         
             colision_objetivos = pg.sprite.spritecollide(self.nivel.jugador, self.nivel.grupo_objetivos, True)
             for objetivo in colision_objetivos:
@@ -127,7 +124,7 @@ class Juego(pg.sprite.Sprite):
                     self.objetivos_recolectados += 1
                     print("Objetivo recolectado")
             # Verifico si se recolectaron todos los objetivos para cambiar de nivel
-            if self.objetivos_recolectados >= 4:
+            if self.objetivos_recolectados >= self.nivel.configuracion_nivel.get("cantidad_objetivos"):
                 self.cambiar_nivel()
             
             colision_energia = pg.sprite.spritecollide(self.nivel.jugador, self.nivel.grupo_energias, True)

@@ -10,8 +10,6 @@ class Jugador(pg.sprite.Sprite):
         self.energia = 100
         self.dinosaurio_der = pg.image.load(path_imagen).convert_alpha()
         self.dinosaurio_izq = pg.image.load(path_imagen_2).convert_alpha()
-        # self.dinosaurio_camina_der = self.cargar_sprites(dinosaurio_camina_der)
-        # self.dinosaurio_camina_izq = self.cargar_sprites(dinosaurio_camina_izq)
         self.dinosaurio_camina_der = dinosaurio_camina_der
         self.dinosaurio_camina_izq = dinosaurio_camina_izq
         self.image = self.dinosaurio_der

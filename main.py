@@ -68,7 +68,6 @@
 
 # for i in range(NUM_ENEMIGOS):
 #     x = random.randint(200, 500)
-#     # Ajustar la posición y para estar cerca del borde inferior
 #     y =  ALTO - 1
 #     aliens = Enemigo((x, y))
 #     enemigos.add(aliens)

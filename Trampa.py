@@ -17,6 +17,10 @@ class Asteroide(pygame.sprite.Sprite):
         self.aceleracion += 0.1
         self.rect.y += self.velocidad * self.aceleracion
 
+        #Verifico si la trampa está fuera de la pantalla
+        if self.rect.top >= ALTO:
+            self.kill()
+
     def draw(self, pantalla):
         pantalla.blit(self.image, self.rect)
 
