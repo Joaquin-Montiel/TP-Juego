@@ -17,6 +17,9 @@ class Asteroide(pygame.sprite.Sprite):
         self.aceleracion += 0.1
         self.rect.y += self.velocidad * self.aceleracion
 
+    def draw(self, pantalla):
+        pantalla.blit(self.image, self.rect)
+
 def generar_trampas(g_sprites, g_trampas, pantalla: pygame.Surface, cantidad: int=8):
     if len(g_trampas) == 0:
         for i in range(cantidad):

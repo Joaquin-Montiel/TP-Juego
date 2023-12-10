@@ -27,3 +27,6 @@ class Enemigo(pg.sprite.Sprite):
 
     def debugger_enemigo(self, pantalla):
         pg.draw.rect(pantalla, (ROJO), self.rect, 3)
+
+    def draw(self, pantalla):
+        pantalla.blit(self.image, self.rect)

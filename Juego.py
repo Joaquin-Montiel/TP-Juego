@@ -8,6 +8,7 @@ from Energia import Energia
 from Objetivo import Huevo
 from Plataforma import Plataforma
 from Vida import Vida
+from Nivel import Nivel
 from config import *
 
 
@@ -57,15 +58,13 @@ class Juego(pg.sprite.Sprite):
             x = (ANCHO -(20 * self.jugador.vidas)) // 2 + i * 30
             y = 25
             vida = Vida(x, y)
-            # lista_vidas.append(vida)
-
             self.grupo_vidas.add(vida) 
         
-        # for i in range(NUM_ENEMIGOS):
-        #     x = random.randint(200, 500)
-        #     y =  ALTO - 1
-        #     self.aliens = Enemigo(RUTA_ENEMIGO_DER, RUTA_ENEMIGO_IZQ, x, y)
-        #     self.grupo_enemigos.add(self.aliens)
+        for i in range(NUM_ENEMIGOS):
+            x = random.randint(200, 500)
+            y =  ALTO - 1
+            self.aliens = Enemigo(RUTA_ENEMIGO_DER, RUTA_ENEMIGO_IZQ, x, y)
+            self.grupo_enemigos.add(self.aliens)
 
 
         self.plataforma_1 = Plataforma(RUTA_PLATAFORMA_1, 525, 370, 36, 36)
@@ -74,10 +73,10 @@ class Juego(pg.sprite.Sprite):
         self.plataforma_4 = Plataforma(RUTA_PLATAFORMA_1, 237, 380, 36, 36)
         self.plataforma_5 = Plataforma(RUTA_PLATAFORMA_1, 273, 380, 36, 36)
         self.plataforma_6 = Plataforma(RUTA_PLATAFORMA_1, 309, 380, 36, 36)
-        self.plataforma_7 = Plataforma(RUTA_PLATAFORMA_2, 110, 550, 36, 36)
-        self.plataforma_8 = Plataforma(RUTA_PLATAFORMA_2, 146, 550, 36, 36)
-        self.plataforma_9 = Plataforma(RUTA_PLATAFORMA_2, 560, 550, 36, 36)
-        self.plataforma_10 = Plataforma(RUTA_PLATAFORMA_2, 596, 550, 36, 36)
+        self.plataforma_7 = Plataforma(RUTA_PLATAFORMA_1, 110, 550, 36, 36)
+        self.plataforma_8 = Plataforma(RUTA_PLATAFORMA_1, 146, 550, 36, 36)
+        self.plataforma_9 = Plataforma(RUTA_PLATAFORMA_1, 560, 550, 36, 36)
+        self.plataforma_10 = Plataforma(RUTA_PLATAFORMA_1, 596, 550, 36, 36)
 
         self.grupo_plataformas.add(self.plataforma_1, self.plataforma_2, self.plataforma_3, self.plataforma_4, 
                                 self.plataforma_5, self.plataforma_6, self.plataforma_7, self.plataforma_8, self.plataforma_9, self.plataforma_10)
@@ -91,14 +90,14 @@ class Juego(pg.sprite.Sprite):
         self.grupo_objetivos.add(self.objetivo_1, self.objetivo_2, self.objetivo_3, self.objetivo_4)
         
         self.energia_1 = Energia(RUTA_ENERGIA, 380, 415, 40, 40)
-        self.energia_2 = Energia(RUTA_ENERGIA, 150, 515, 40, 40)
+        self.energia_2 = Energia(RUTA_ENERGIA, 130, 515, 40, 40)
         self.energia_3 = Energia(RUTA_ENERGIA, 410, 415, 40, 40)
         self.energia_4 = Energia(RUTA_ENERGIA, 580, 330, 40, 40)
         self.energia_5 = Energia(RUTA_ENERGIA, 390, 450, 40, 40)
         self.grupo_energias.add(self.energia_1, self.energia_2, self.energia_3, self.energia_4, self.energia_5)
 
         self.grupo_sprites.add(self.jugador, self.grupo_plataformas, self.grupo_disparos, self.grupo_objetivos, self.grupo_energias, 
-                            ) #self.grupo_enemigos
+                    self.grupo_enemigos) 
 
         #Variables del juego
         self.reloj = pg.time.Clock()
@@ -165,25 +164,11 @@ class Juego(pg.sprite.Sprite):
 
             generar_trampas(self.grupo_sprites, self.grupo_trampas, self.pantalla, MAX_ASTEROID)
 
-            # self.jugador.aplicar_gravedad()
-
 
             for plataforma in self.grupo_plataformas:
                 if self.jugador.rect.colliderect(plataforma.rect):
                     self.jugador.rect.y = plataforma.rect.y - self.jugador.rect.height
                     self.jugador.velocidad_y = 0
-
-            # colision_plataformas = pg.sprite.spritecollide(self.jugador, self.grupo_plataformas, False)
-            # for plataforma in colision_plataformas:
-            #     if pg.sprite.collide_mask(self.jugador, plataforma):
-            #         if self.jugador.bottom > plataforma.rect.top:
-            #             self.jugador.bottom = plataforma.rect.top
-            #             self.jugador.en_el_aire = False
-            #             self.jugador.velocidad_y = 0
-
-            # Actualizo el jugador usando el hitbox
-            # self.jugador.rect.x = self.jugador.x
-            # self.jugador.rect.y = self.jugador.y
 
 
             colision_enemigos = pg.sprite.spritecollide(self.jugador, self.grupo_enemigos, False)
@@ -257,11 +242,11 @@ class Juego(pg.sprite.Sprite):
 
             self.grupo_sprites.draw(self.pantalla)
             self.grupo_vidas.draw(self.pantalla)
-            self.jugador.debugger(self.pantalla)
+            # self.jugador.debugger(self.pantalla)
             # for enemigo in self.grupo_enemigos:
             #     enemigo.debugger_enemigo(self.pantalla)
-            for plataforma in self.grupo_plataformas:
-                plataforma.debugger_plataformas(self.pantalla)
+            # for plataforma in self.grupo_plataformas:
+            #     plataforma.debugger_plataformas(self.pantalla)
             
 
             # Actualizar el jugador

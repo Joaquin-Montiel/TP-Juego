@@ -7,7 +7,6 @@
             "fondo_pantalla": "./sprites_juego/Fondo/fondo.jpg",
             "musica_fondo": "./Sounds/videojuegos.mp3",
             "sonido_game_over": "./Sounds/game_over.mp3",
-            "sonido_victoria": "./Sounds/victoria.mp3",
             "cantidad_vidas": 3,
             "cantidad_enemigos": 3,
             "cantidad_trampas": 3,
@@ -16,35 +15,20 @@
             "tiempo": 100
         },
         "plataformas":{
-            "plataforma_1":{
-                "image": "./sprites_juego/Plataformas/plataforma1.png",
-                "x": 510, 
-                "y": 335, 
-                "ancho": 120, 
-                "alto":120
+                "imagen": "./sprites_juego/Plataformas/piedras.png",
+                "ancho": 36, 
+                "alto":36,
+                "plataforma_1":{"x": 525, "y": 370},
+                "plataforma_2":{"x": 560, "y": 370},
+                "plataforma_3":{"x": 596, "y": 370},
+                "plataforma_4":{"x": 237, "y": 380},
+                "plataforma_5":{"x": 273, "y": 380},
+                "plataforma_6":{"x": 309, "y": 380},
+                "plataforma_7":{"x": 110, "y": 550},
+                "plataforma_8":{"x": 146, "y": 550},
+                "plataforma_9":{"x": 560, "y": 550},
+                "plataforma_10":{"x": 596, "y": 550}
             },
-            "plataforma_2":{
-                "image": "./sprites_juego/Plataformas/plataforma1.png",
-                "x": 225,  
-                "y": 345, 
-                "ancho": 120, 
-                "alto":120
-            },
-            "plataforma_3":{
-                "image": "./sprites_juego/Plataformas/plataforma2.png",
-                "x": 560,  
-                "y": 510, 
-                "ancho": 100, 
-                "alto":100
-            },
-            "plataforma_4":{
-                "image": "./sprites_juego/Plataformas/plataforma2.png",
-                "x": 100,  
-                "y": 510, 
-                "ancho": 100, 
-                "alto":100
-            }
-        },
         "jugador":{
             "jugador_parado_der": "./sprites_juego/Idlle/Idlle_der.png",
             "jugador_parado_izq": "./sprites_juego/Idlle/Idlle_izq.png",
@@ -74,79 +58,39 @@
         "enemigo":{
             "enemigo_der": "./sprites_juego/Enemigo/enemigo_der.png",
             "enemigo_izq": "./sprites_juego/Enemigo/enemigo_iz.png",
-            "x": {
-                "valor_x_1": 200,
-                "valor_x_2": 500
-            },
-            "y": {
-                "valor_y_1": 600,
-                "valor_y_2": 1
-            }
+            "x": {"valor_x_1":200, "valor_x_2":500},
+            "y": {"valor_y_1":600, "valor_y_2": 1}
         },
         "objetivos":{
             "imagen": "./sprites_juego/Energia/huevo_dino.png",
             "ancho": 40,
             "alto": 40,
-            "objetivo_1": { 
-                "x": 530,
-                "y": 335
-            },
-            "objetivo_2":{
-                    "x": 530,
-                    "y": 335
-            },
-            "objetivo_3":{
-                "x": 530,
-                "y": 330
-            },
-            "objetivo_4":{
-                "x": 530,
-                "y": 335
-            }},
+            "objetivo_1":{"x":530, "y":335},
+            "objetivo_2":{"x":530, "y":335},
+            "objetivo_3":{"x":530, "y":330},
+            "objetivo_4":{"x":530, "y":335}
+        },
         "energia":{
             "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
             "ancho": 40,
             "alto": 40,
-            "energia_1":{
-                "x": 380,
-                "y": 415
-            },
-            "energia_2":{
-                "x": 150,
-                "y": 515
-            },
-            "energia_3":{
-                "x": 410,
-                "y": 415
-            },
-            "energia_4":{
-                "x": 580,
-                "y": 330
-            },
-            "energia_5":{
-                "x": 390,
-                "y": 450
-            }},
+            "energia_1":{"x":380, "y":415},
+            "energia_2":{"x":130, "y":515},
+            "energia_3":{"x":410, "y":415},
+            "energia_4":{"x":580, "y":330},
+            "energia_5":{"x":390, "y":450}
+        },
         "trampa":{
             "imagen": "./sprites_juego/Enemigo/meteorito.png",
-            "x":{
-                "valor_x_1": 40,
-                "valor_x_2": 760
-            },
-            "y":{
-                "valor_y_1": 40,
-                "valor_y_2": 300
-            }},
+            "x":{"valor_x_1":40, "valor_x_2":760},
+            "y":{"valor_y_1":40, "valor_y_2":300}   
+        },
         "vidas":{
             "imagen": "sprites_juego/vida/vida.png",
-            "x": {
-                "valor_x_1": 800,
-                "valor_x_2": 390
-            },
+            "x":{"valor_x_1":800, "valor_x_2":390},
             "y": 25,
             "cantidad_vida": 1
-        }
-
+    }
     },
     "nivel_2":{
         "nivel":{
@@ -162,35 +106,20 @@
             "tiempo": 100
         },
         "plataformas":{
-            "plataforma_1":{
-            "image": "./sprites_juego/Plataformas/plataforma1.png",
-            "x": 510, 
-            "y": 335, 
-            "ancho": 120, 
-            "alto":120
+            "imagen": "./sprites_juego/Plataformas/piedras.png",
+            "ancho": 36, 
+            "alto":36,
+            "plataforma_1":{"x":525, "y":370},
+            "plataforma_2":{"x":560, "y":370},
+            "plataforma_3":{"x":596, "y":370},
+            "plataforma_4":{"x":237, "y":380},
+            "plataforma_5":{"x":273, "y":380},
+            "plataforma_6":{"x":309, "y":380},
+            "plataforma_7":{"x":110, "y":550},
+            "plataforma_8":{"x":146, "y":550},
+            "plataforma_9":{"x":560, "y":550},
+            "plataforma_10":{"x":596, "y":550}
         },
-        "plataforma_2":{
-            "image": "./sprites_juego/Plataformas/plataforma1.png",
-            "x": 225,  
-            "y": 345, 
-            "ancho": 120, 
-            "alto":120
-        },
-        "plataforma_3":{
-            "image": "./sprites_juego/Plataformas/plataforma2.png",
-            "x": 560,  
-            "y": 510, 
-            "ancho": 100, 
-            "alto":100
-        },
-        "plataforma_4":{
-            "image": "./sprites_juego/Plataformas/plataforma2.png",
-            "x": 100,  
-            "y": 510, 
-            "ancho": 100, 
-            "alto":100
-        },
-        
         "jugador":{
             "jugador_parado_der": "./sprites_juego/Idlle/Idlle_der.png",
             "jugador_parado_izq": "./sprites_juego/Idlle/Idlle_izq.png",
@@ -220,75 +149,36 @@
         "enemigo":{
             "enemigo_der": "./sprites_juego/Enemigo/enemigo_der.png",
             "enemigo_izq": "./sprites_juego/Enemigo/enemigo_iz.png",
-            "x": {
-                "valor_x_1": 200,
-                "valor_x_2": 500
-            },
-            "y": {
-                "valor_y_1": 600,
-                "valor_y_2": 1
-            }
+            "x":{"valor_x_1":200,"valor_x_2":500},
+            "y":{"valor_y_1":600,"valor_y_2":1}
         },
         "objetivos":{
             "imagen": "./sprites_juego/Energia/huevo_dino.png",
             "ancho": 40,
             "alto": 40,
-            "objetivo_1": { 
-                "x": 530,
-                "y": 335
-            },
-            "objetivo_2":{
-                    "x": 530,
-                    "y": 335
-            },
-            "objetivo_3":{
-                "x": 530,
-                "y": 330
-            },
-            "objetivo_4":{
-                "x": 530,
-                "y": 335
-            }},
+            "objetivo_1":{"x":530, "y":335},
+            "objetivo_2":{"x":530, "y":335},
+            "objetivo_3":{"x":530, "y":330},
+            "objetivo_4":{"x":530, "y":335}
+        },
         "energia":{
             "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
             "ancho": 40,
             "alto": 40,
-            "energia_1":{
-                "x": 380,
-                "y": 415
-            },
-            "energia_2":{
-                "x": 150,
-                "y": 515
-            },
-            "energia_3":{
-                "x": 410,
-                "y": 415
-            },
-            "energia_4":{
-                "x": 580,
-                "y": 330
-            },
-            "energia_5":{
-                "x": 390,
-                "y": 450
-        }},
+            "energia_1":{"x":380, "y":415},
+            "energia_2":{"x":150, "y":515},
+            "energia_3":{"x":410, "y":415},
+            "energia_4":{"x":580, "y":330},
+            "energia_5":{"x":390, "y":450}
+        },
         "trampa":{
-            "meteorito": "./sprites_juego/Enemigo/meteorito.png",
-            "x":{
-                "valor_x_1": 40,
-                "valor_x_2": 760
-            },
-            "y":{
-                "valor_y_1": 40,
-                "valor_y_2": 300
-            }},
+            "imagen": "./sprites_juego/Enemigo/meteorito.png",
+            "x":{"valor_x_1":40, "valor_x_2":760},
+            "y":{"valor_y_1":40, "valor_y_2":300}
+        },
         "vidas":{
             "imagen": "sprites_juego/vida/vida.png",
-            "x": {
-                "valor_x_1": 800,
-                "valor_x_2": 390
-            },
+            "x": {"valor_x_1":800, "valor_x_2":390},
             "y": 25,
             "cantidad_vida": 1
         }
@@ -306,33 +196,20 @@
             "plataforma_2": "./sprites_juego/Plataformas/plataforma2.png",
             "tiempo": 100
         },
-        "plataforma_1":{
-            "image": "./sprites_juego/Plataformas/plataforma1.png",
-            "x": 510, 
-            "y": 335, 
-            "ancho": 120, 
-            "alto":120
-        },
-        "plataforma_2":{
-            "image": "./sprites_juego/Plataformas/plataforma1.png",
-            "x": 225,  
-            "y": 345, 
-            "ancho": 120, 
-            "alto":120
-        },
-        "plataforma_3":{
-            "image": "./sprites_juego/Plataformas/plataforma2.png",
-            "x": 560,  
-            "y": 510, 
-            "ancho": 100, 
-            "alto":100
-        },
-        "plataforma_4":{
-            "image": "./sprites_juego/Plataformas/plataforma2.png",
-            "x": 100,  
-            "y": 510, 
-            "ancho": 100, 
-            "alto":100
+        "plataformas":{
+                "imagen": "./sprites_juego/Plataformas/piedras.png",
+                "ancho": 36, 
+                "alto":36,
+                "plataforma_1":{"x":525, "y":370},
+                "plataforma_2":{"x":560, "y":370},
+                "plataforma_3":{"x":596, "y":370},
+                "plataforma_4":{"x":237, "y":380},
+                "plataforma_5":{"x":273, "y":380},
+                "plataforma_6":{"x":309, "y":380},
+                "plataforma_7":{"x":110, "y":550},
+                "plataforma_8":{"x":146, "y":550},
+                "plataforma_9":{"x":560, "y":550},
+                "plataforma_10":{"x":596, "y":550}
         },
         "jugador":{
             "jugador_parado_der": "./sprites_juego/Idlle/Idlle_der.png",
@@ -363,76 +240,40 @@
         "enemigo":{
             "enemigo_der": "./sprites_juego/Enemigo/enemigo_der.png",
             "enemigo_izq": "./sprites_juego/Enemigo/enemigo_iz.png",
-            "x": {
-                "valor_x_1": 200,
-                "valor_x_2": 500
-            },
-            "y": {
-                "valor_y_1": 600,
-                "valor_y_2": 1
-            }
+            "x": {"valor_x_1":200, "valor_x_2":500},
+            "y": {"valor_y_1":600, "valor_y_2":1}
         },
         "objetivos":{
             "imagen": "./sprites_juego/Energia/huevo_dino.png",
             "ancho": 40,
             "alto": 40,
-            "objetivo_1": { 
-                "x": 530,
-                "y": 335
-            },
-            "objetivo_2":{
-                    "x": 530,
-                    "y": 335
-            },
-            "objetivo_3":{
-                "x": 530,
-                "y": 335
-            },
-            "objetivo_4":{
-                "x": 530,
-                "y": 335
-            }},
+            "objetivo_1":{"x":530, "y":335},
+            "objetivo_2":{"x":530, "y":335},
+            "objetivo_3":{"x":530, "y":335},
+            "objetivo_4":{"x":530, "y":335}
+        },
         "energia":{
             "imagen": "./sprites_juego/Energia/hueso_de_carne.png",
             "ancho": 40,
             "alto": 40,
-            "energia_1":{
-                "x": 380,
-                "y": 415
-            },
-            "energia_2":{
-                "x": 150,
-                "y": 515
-            },
-            "energia_3":{
-                "x": 410,
-                "y": 415
-            },
-            "energia_4":{
-                "x": 580,
-                "y": 330
-            },
-            "energia_5":{
-                "x": 390,
-                "y": 450
-        }},
-    "trampa":{
-        "meteorito": "./sprites_juego/Enemigo/meteorito.png",
-        "x":{
-            "valor_x_1": 40,
-            "valor_x_2": 760
+            "energia_1":{"x":380, "y":415},
+            "energia_2":{"x":150, "y":515},
+            "energia_3":{"x":410, "y":415},
+            "energia_4":{"x":580, "y":330},
+            "energia_5":{"x":390, "y":450}
         },
-        "y":{
-            "valor_y_1": 40,
-            "valor_y_2": 300
-        }},
+    "trampa":{
+        "imagen": "./sprites_juego/Enemigo/meteorito.png",
+        "x":{"valor_x_1":40, "valor_x_2":760},
+        "y":{"valor_y_1":40, "valor_y_2":300}
+        },
     "vidas":{
         "imagen": "sprites_juego/vida/vida.png",
-        "x": {
-            "valor_x_1": 800,
-            "valor_x_2": 390
-        },
+        "x": {"valor_x_1":800, "valor_x_2":390},
         "y": 25,
         "cantidad_vida": 1
-    }}
-}}
+        }
+    }
+}
+
+
