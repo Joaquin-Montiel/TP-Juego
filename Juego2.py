@@ -111,6 +111,7 @@ class Juego(pg.sprite.Sprite):
                 self.nivel.jugador.colision_con_trampa += 1
                 if self.nivel.jugador.colision_con_trampa == 3:
                     self.nivel.jugador.vidas -= 1
+                    self.nivel.jugador.vidas -= 1
                     self.nivel.grupo_vidas.remove(self.nivel.vidas)
                     print("Vida menos")
                     print("Colision con trampa.")

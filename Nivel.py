@@ -12,6 +12,7 @@ from Vida import Vida
 class Nivel:
     def __init__(self, pantalla, ancho_pantalla, alto_pantalla, nombre_del_nivel):
         self.configuracion = abrir_json().get(nombre_del_nivel)
+        self.configuracion_tiempo = self.configuracion.get("tiempo_de_juego")
         if self.configuracion:
             self.configuracion_nivel = self.configuracion.get("nivel", {})
         else:

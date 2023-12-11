@@ -1,7 +1,7 @@
 import pygame
 class Widget:
     def __init__(self, screen: pygame.Surface, x: int, y: int, w: int, h:int, color_background = "Black", color_border = "Red", 
-                 border_size: int = -1):
+                border_size: int = -1):
         
         self._master = screen
         self._x = x

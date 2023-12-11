@@ -17,7 +17,7 @@
         "plataformas":{
                 "imagen": "./sprites_juego/Plataformas/piedras.png",
                 "ancho": 36, 
-                "alto":36,
+                "alto": 36,
                 "plataforma_1":{"x": 525, "y": 370},
                 "plataforma_2":{"x": 560, "y": 370},
                 "plataforma_3":{"x": 596, "y": 370},
