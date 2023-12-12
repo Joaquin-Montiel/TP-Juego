@@ -7,12 +7,14 @@ from config import *
 
 
 class Juego(pg.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, nombre_jugador, nivel_seleccionado):
         super().__init__()
         pg.init()
         pg.mixer.init()
 
         #Configuracion de la pantalla
+        self.jugador_nombre = nombre_jugador
+        self.nivel_seleccionado = nivel_seleccionado
         self.pantalla = pg.display.set_mode((ANCHO, ALTO))
         pg.display.set_caption("A jugar con Dino")
 
@@ -20,6 +22,7 @@ class Juego(pg.sprite.Sprite):
         self.nivel = Nivel(self.pantalla, ANCHO, ALTO, "nivel_1")
 
     def ejecutar_juego(self):
+        # main_menu()
         self.nivel.inicializar_nivel()
         #Cargo la fuente
         self.fuente = pg.font.Font('./Fonts\BebasNeue-Regular.ttf', 36)
@@ -44,6 +47,7 @@ class Juego(pg.sprite.Sprite):
 
         # #Bucle principal
         while self.en_ejecucion:
+            
             self.reloj.tick(FPS)
             for evento in pg.event.get():
                 if evento.type == pg.QUIT:
@@ -78,7 +82,8 @@ class Juego(pg.sprite.Sprite):
             
             colision_enemigos = pg.sprite.spritecollide(self.nivel.jugador, self.nivel.grupo_enemigos, False)
             for enemigo in colision_enemigos:
-                self.nivel.grupo_vidas.remove(self.nivel.jugador.vidas)
+                # if colision
+                self.nivel.jugador.vidas -= 1
                 print("Colisión con enemigo.")
             if self.nivel.jugador.vidas < 1:
                 self.en_ejecucion = False
@@ -109,10 +114,10 @@ class Juego(pg.sprite.Sprite):
             colision_trampa_jugador = pg.sprite.spritecollide(self.nivel.jugador, self.nivel.grupo_trampas, True)
             for trampa in colision_trampa_jugador:
                 self.nivel.jugador.colision_con_trampa += 1
-                if self.nivel.jugador.colision_con_trampa == 3:
+                if self.nivel.jugador.colision_con_trampa == 1:
                     self.nivel.jugador.vidas -= 1
-                    self.nivel.jugador.vidas -= 1
-                    self.nivel.grupo_vidas.remove(self.nivel.vidas)
+                    self.nivel.crear_vidas()
+
                     print("Vida menos")
                     print("Colision con trampa.")
 
@@ -125,7 +130,7 @@ class Juego(pg.sprite.Sprite):
                     self.objetivos_recolectados += 1
                     print("Objetivo recolectado")
             # Verifico si se recolectaron todos los objetivos para cambiar de nivel
-            if self.objetivos_recolectados >= self.nivel.configuracion_nivel.get("cantidad_objetivos"):
+            if self.objetivos_recolectados == self.nivel.configuracion_nivel.get("cantidad_objetivos"):
                 self.cambiar_nivel()
             
             colision_energia = pg.sprite.spritecollide(self.nivel.jugador, self.nivel.grupo_energias, True)
@@ -135,9 +140,9 @@ class Juego(pg.sprite.Sprite):
                     self.sonido_recoleccion.play() 
                     self.nivel.jugador.energias_recolectadas += 1
                     if self.nivel.jugador.energias_recolectadas == 3:
+                        self.nivel.jugador.vidas += 1
                         print("Energia recolectada")
-                        nueva_vida = Vida(x = random.randint(200, 400), y = 25)
-                        self.nivel.grupo_vidas.add(nueva_vida)
+                        self.nivel.crear_vidas()
                     
 
             #Actualizo los sprites

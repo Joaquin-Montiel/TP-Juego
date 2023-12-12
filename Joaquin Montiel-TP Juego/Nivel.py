@@ -28,6 +28,7 @@ class Nivel:
                                     self.configuracion_jugador.get("jugador_parado_izq"),
                                     dinosaurio_camina_der,
                                     dinosaurio_camina_izq)
+        self.jugador.vidas = self.configuracion_nivel.get("cantidad_vidas")
         
         #Configuro los enemigos
         self.configuracion_enemigo = self.configuracion.get("enemigo")
@@ -153,26 +154,15 @@ class Nivel:
             trampa.draw(self.pantalla_principal)
 
     def crear_vidas(self):
-        cantidad_vidas = self.configuracion_nivel.get("cantidad_vidas")
-        if isinstance(cantidad_vidas, int):
-            for i in range(1, cantidad_vidas + 1):
-                x = (ANCHO -(20 * cantidad_vidas)) // 2 + i * 30
+        for vida in self.grupo_vidas:
+            vida.kill()
+        if isinstance(self.jugador.vidas, int):
+            for i in range(1, self.jugador.vidas + 1):
+                x = (ANCHO -(20 * self.jugador.vidas)) // 2 + i * 30
                 y = 25
                 vida = Vida(x, y)
                 self.grupo_vidas.add(vida) 
-        self.grupo_sprites.add(self.grupo_vidas)
 
-    # def crear_vidas(self):
-    #     cantidad_vidas = self.configuracion_nivel.get("cantidad_vidas")
-    #     if isinstance(cantidad_vidas, int):
-    #         for i in range(1, cantidad_vidas + 1):
-    #             x = (ANCHO - (20 * cantidad_vidas)) // 2 + i * 30
-    #             y = 25
-    #             vida = Vida(x, y)
-    #             self.grupo_vidas.add(vida) 
-    #             print(f"Creada vida en posición ({x}, {y})")
-    #         print("Cantidad de vidas creadas:", len(self.grupo_vidas))
-    #     self.grupo_sprites.add(self.grupo_vidas)
 
     def mostrar_vidas(self):
         for vida in self.grupo_vidas:
@@ -190,7 +180,10 @@ class Nivel:
         self.mostrar_plataformas()
         self.mostrar_objetivos()
         self.mostrar_energias()
+        self.crear_vidas()
+        self.crear_trampas()
         self.mostrar_vidas()
+        self.grupo_trampas.update()
         self.mostrar_trampas()
         self.grupo_sprites.draw(self.pantalla)
 
