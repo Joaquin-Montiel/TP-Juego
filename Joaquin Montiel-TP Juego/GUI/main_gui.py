@@ -11,10 +11,16 @@ pg.init()
 
 ANCHO = 800
 ALTO = 600
+
 pantalla = pg.display.set_mode((ANCHO, ALTO))
 pg.display.set_caption("Menu")
-
 fondo_menu = pg.transform.scale(pg.image.load(r"./sprites_juego\Fondo\fondo_menu.jpg"), (ANCHO, ALTO))
+
+reloj = pg.time.Clock()
+en_ejecucion = True
+pausa = False
+
+
 
 
 def get_font(tamanio):
@@ -26,14 +32,28 @@ def get_font(tamanio):
         print("Error al cargar la fuente.")
         return None
 
+# def cambiar_estado_pausa():
+
+
+
+
+def ventana_pausa():
+    pg.display.set_caption("Pausa")
+    while True:
+        texto_pausa = get_font(60).render("Juego en Pausa", True, "Black")
+        texto_rect = texto_pausa.get_rect(center=(400, 200))
+        pantalla.blit(texto_pausa, texto_rect)
+
+        BOTON_RENAUDAR = pg.Rect(300, 400, 200, 50)
+        
+
 def iniciar_juego(jugador_nombre, nivel_seleccionado):
-    # Crear una instancia de la clase Juego con el nombre del jugador y el nivel seleccionado
+    # Instancio de la clase Juego 
     juego = Juego(jugador_nombre, nivel_seleccionado)
     # Ejecutar el juego
     juego.ejecutar_juego()
     # Puedes agregar más lógica aquí después de que el juego haya terminado, si es necesario
     print(f"Juego terminado para {jugador_nombre} en el nivel {nivel_seleccionado}")
-
 
 def entrar_al_nivel(jugador_nombre):
     nivel_seleccionado = None
@@ -79,7 +99,6 @@ def entrar_al_nivel(jugador_nombre):
                         return nivel_seleccionado
 
         pg.display.update()
-
 
 def play():
     pg.display.set_caption("Play")
@@ -154,79 +173,6 @@ def play():
 
         pg.display.update()
 
-
-
-# def play():
-#     pg.display.set_caption("Play")
-#     nombre_jugador = ""
-#     entrada_activa = False
-#     input_box = InputBox(300, 300, 200, 40, get_font(30))
-
-#     while True:
-#         PLAY_MOUSE_POS = pg.mouse.get_pos()
-
-#         pantalla.blit(fondo_menu, (0, 0))
-
-#         PLAY_TEXT = get_font(60).render("Iniciar Juego", True, "Black")
-#         PLAY_RECT = PLAY_TEXT.get_rect(center=(400, 200))
-#         pantalla.blit(PLAY_TEXT, PLAY_RECT)
-
-#         PLAY_BACK = Button(image=None, pos=(700, 500), text_input="<- Atras", font=get_font(45),
-#                             base_color="Black", color="Blue")
-
-#         PLAY_BACK.changeColor(PLAY_MOUSE_POS)
-#         PLAY_BACK.update(pantalla)
-
-#         for event in pg.event.get():
-#             if event.type == pg.QUIT:
-#                 pg.quit()
-#                 sys.exit()
-#             if event.type == pg.MOUSEBUTTONDOWN:
-#                 if PLAY_BACK.checkForInput(PLAY_MOUSE_POS):
-#                     main_menu()
-#             if event.type == pg.KEYDOWN:
-#                 if entrada_activa:
-#                     if event.key == pg.K_RETURN:
-#                         entrada_activa = False
-#                         jugador_nombre = nombre_jugador
-#                         nivel_seleccionado = cambio_nivel(jugador_nombre)
-#                         if nivel_seleccionado is not None:
-#                             print(f"Jugador: {jugador_nombre}, Nivel seleccionado: {nivel_seleccionado}")
-#                             return  # Salgo del bucle 
-#                     elif event.key == pg.K_BACKSPACE:
-#                         nombre_jugador = nombre_jugador[:-1]
-#                     else:
-#                         nombre_jugador += event.unicode
-#                 elif event.key == pg.K_RETURN:
-#                     entrada_activa = True
-
-#             # Verifico si se ha presionado "Enter"
-#             if input_box.is_enter_pressed(event):
-#                 entrada_activa = False
-#                 jugador_nombre = input_box.text
-#                 nivel_seleccionado = cambio_nivel(jugador_nombre)
-#                 if nivel_seleccionado is not None:
-#                     print(f"Jugador: {jugador_nombre}, Nivel seleccionado: {nivel_seleccionado}")
-#                     return  
-                
-#             input_box.handle_event(event)
-
-#         pantalla.blit(fondo_menu, (0, 0))
-
-#         PLAY_TEXT = get_font(60).render("Iniciar Juego", True, "Black")
-#         PLAY_RECT = PLAY_TEXT.get_rect(center=(400, 200))
-#         pantalla.blit(PLAY_TEXT, PLAY_RECT)
-
-#         input_box.update()
-#         input_box.draw(pantalla)
-
-#         PLAY_BACK.changeColor(pg.mouse.get_pos())
-#         PLAY_BACK.update(pantalla)
-
-
-#         pg.display.update()
-
-
 def options():
     pg.display.set_caption("Options")
 
@@ -254,7 +200,6 @@ def options():
                 if OPTIONS_BACK.checkForInput(OPTIONS_MOUSE_POS):
                     main_menu()
         pg.display.update()
-
 
 def main_menu():
     while True:
